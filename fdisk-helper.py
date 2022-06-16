@@ -28,4 +28,5 @@ for device in FDISK_FULL_PARTITION_STRING_TABLE.keys():
 	FDISK_FULL_PARTITION_STRING_TABLE[device] += "w\n"
 
 	command = "-- echo -e '"+ FDISK_FULL_PARTITION_STRING_TABLE[device] +"' |sudo fdisk "+ device
-	os.popen("ssh -i "+ disk_manifest["ssh-key-path"] +" "+ disk_manifest["target-user"] +"@"+ disk_manifest["target-machine"] +" "+ command)
+	print(os.popen("ssh -i "+ disk_manifest["ssh-key-path"] +" "+ disk_manifest["target-user"] +"@"+ disk_manifest["target-machine"] +" "+ command).read())
+	print(os.popen("ssh -i "+ disk_manifest["ssh-key-path"] +" "+ disk_manifest["target-user"] +"@"+ disk_manifest["target-machine"] +" lsblk").read())
