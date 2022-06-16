@@ -27,4 +27,5 @@ for device in disk_manifest["table"].keys():
 for device in FDISK_FULL_PARTITION_STRING_TABLE.keys():
 	FDISK_FULL_PARTITION_STRING_TABLE[device] += "w\n"
 
-print(FDISK_FULL_PARTITION_STRING_TABLE)
+	command = "-- echo -e '"+ FDISK_FULL_PARTITION_STRING_TABLE[device] +"' |sudo fdisk "+ device
+	os.popen("ssh -i "+ disk_manifest["ssh-key-path"] +" "+ disk_manifest["target-user"] +"@"+ disk_manifest["target-machine"] +" "+ command)
