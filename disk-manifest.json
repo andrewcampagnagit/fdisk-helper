@@ -1,0 +1,26 @@
+{
+	"target-machine":"",
+	"ssh-key-path":"",
+	"table": {
+		"/dev/sdb": {
+			"extended": {
+				"e": ["ALL"],
+				"parts": [
+					{"+5G":4},
+					{"+10G":7},
+					{"+60G":3},
+					{"+500G":3}
+				]
+			} 
+		},
+
+		"/dev/sdc" : {
+			"extended": {
+				"e": ["ALL"],
+				"parts": [
+					{"+220G":3}
+				]
+			} 
+		}
+	}
+}
